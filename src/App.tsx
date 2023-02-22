@@ -1,13 +1,14 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
+import Calculator from "./components/Calculator/Calculator";
+import GlobalStyle from "./GlobalStyles";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <div></div>
-    </Provider>
+    <>
+      <GlobalStyle />
+      <Calculator />
+    </>
   );
-}
+};
 
 export default App;
