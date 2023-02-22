@@ -5,10 +5,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
 
-  button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer
-  }
+  
 `;
 export default GlobalStyle;

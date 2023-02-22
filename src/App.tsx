@@ -1,14 +1,12 @@
-import React from "react";
 import Calculator from "./components/Calculator/Calculator";
-import GlobalStyle from "./GlobalStyles";
+import Layout from "./components/Layout/Layout";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <>
-      <GlobalStyle />
+    <Layout>
       <Calculator />
-    </>
+    </Layout>
   );
-};
+}
 
 export default App;
