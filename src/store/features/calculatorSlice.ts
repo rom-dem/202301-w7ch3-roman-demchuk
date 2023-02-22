@@ -84,5 +84,6 @@ export const {
   inputDigit,
   performOperation,
 } = calculatorSlice.actions;
+
 const calculatorReducer = calculatorSlice.reducer;
 export default calculatorReducer;

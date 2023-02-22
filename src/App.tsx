@@ -1,12 +1,11 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
+import Calculator from "./components/Calculator/Calculator";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
-    <Provider store={store}>
-      <div></div>
-    </Provider>
+    <Layout>
+      <Calculator />
+    </Layout>
   );
 }
 

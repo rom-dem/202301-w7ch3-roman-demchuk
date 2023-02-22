@@ -1,21 +1,34 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import Button from "./CalculatorButton";
+import calculatorSlice from "../../store/features/calculatorSlice";
 
-describe("Given a Button component", () => {
-  describe("CalculatorButton", () => {
-    test("renders label", () => {
-      render(<Button label="7" onClick={() => {}} />);
-      const labelElement = screen.getByText("7");
-      expect(labelElement).toBeInTheDocument();
-    });
+describe("calculatorSlice", () => {
+  const initialState = {
+    currentValue: "0",
+    previousValue: "0",
+    operator: null,
+  };
 
-    test("calls onClick when clicked", () => {
-      const handleClick = jest.fn();
-      render(<Button label="7" onClick={handleClick} />);
-      const buttonElement = screen.getByText("7");
-      fireEvent.click(buttonElement);
-      expect(handleClick).toHaveBeenCalledTimes(1);
-    });
+  it("should return the initial state on first run", () => {
+    expect(calculatorSlice(undefined, {} as any)).toEqual(initialState);
+  });
+
+  it("should handle updateValue", () => {
+    const state = initialState;
+    const payload = "5";
+    const action = { type: "calculator/updateValue", payload };
+    const newState = calculatorSlice(state, action);
+
+    expect(newState.currentValue).toEqual(payload);
+  });
+
+  it("should handle clear", () => {
+    const state = {
+      currentValue: "5",
+      previousValue: "3",
+      operator: "+",
+    };
+    const action = { type: "calculator/clear" };
+    const newState = calculatorSlice(state, action);
+
+    expect(newState).toEqual(initialState);
   });
 });
