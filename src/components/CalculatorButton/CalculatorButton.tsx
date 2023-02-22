@@ -1,19 +1,16 @@
 import React from "react";
+import CalculatorButtonStyled from "./CalculatorButtonStyled";
 
-type CalculatorButtonProps = {
+interface CalculatorButtonProps {
   label: string;
   onClick: () => void;
-};
+}
 
-const CalculatorButton: React.FC<CalculatorButtonProps> = ({
+export const CalculatorButton: React.FC<CalculatorButtonProps> = ({
   label,
   onClick,
 }) => {
   return (
-    <button className="calculator-button" onClick={onClick}>
-      {label}
-    </button>
+    <CalculatorButtonStyled onClick={onClick}>{label}</CalculatorButtonStyled>
   );
 };
-
-export default CalculatorButton;
